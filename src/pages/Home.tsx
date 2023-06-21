@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import PageWidth from 'src/components/PageWidth';
 import SectionTitle from 'src/components/Home/SectionTitle';
+import HowToLearn from 'src/components/Home/HowToLearn';
 
 const Banner = styled.div<IThemeProps>`
   background-color: ${({theme: {color: {black_100}}})=> black_100};
@@ -76,7 +77,7 @@ const WebsiteIntro = styled.div<IThemeProps>`
   .website-intro-text {
     font-size: 28px;
     color: ${({theme: {color: {white_100}}}) => white_100};
-    margin-right: 158px;
+    margin-right: 134px;
   }
   .website-intro-list {
     display: flex;
@@ -86,10 +87,11 @@ const WebsiteIntro = styled.div<IThemeProps>`
   .website-intro-item {
     color: ${({theme: {color: {gray_100}}}) => gray_100};
     font-size: 18px;
+    width: 306px;
     border: 1px solid transparent;
     border-radius: 10px;
     text-align: center;
-    padding: 50px;
+    padding: 40px;
     &:hover {
       color: ${({theme: {color: {white_100}}}) => white_100};
       border: 1px solid ${({theme: {color: {green_100}}}) => green_100};
@@ -257,6 +259,33 @@ const MoreCourseBtn = styled.button<IThemeProps>`
 `;
 
 function Home() {
+  const howToLearnList = [
+    {
+      image: 'https://images.unsplash.com/photo-1584949091598-c31daaaa4aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      title: '對症下藥，專案製作',
+      content: '除了可以瘋狂提問之外 還有機會一起完成專案',
+      icon: 'forum'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1579403124614-197f69d8187b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+      title: '激發你的學習潛力',
+      content: '進度制課程安排&個人化學習建議 有效管理你的學習動力',
+      icon: 'lightbulb'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1617042375876-a13e36732a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      title: '學習效率',
+      content: '針對學員狀況調整內容與步調 學習精準最有效',
+      icon: 'thumb_up'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1520583457224-aee11bad5112?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
+      title: '一對一指導',
+      content: '針對目的進行客製化課程安排 快速的學以致用',
+      icon: 'people'
+    },
+  ]
+
   return <>
     <Banner>
       <PageWidth className='page-width'>
@@ -283,13 +312,13 @@ function Home() {
           </li>
           <li className='website-intro-item'>
             <span className="material-icons-outlined icon">rocket_launch</span>
-            <p className='website-intro-title'>超過 100 種專業課程</p>
-            <p>學習標準化的電腦形式語言<br />培養運算思維和邏輯素養</p>
+            <p className='website-intro-title'>高效學習</p>
+            <p>客製化專屬課表<br />讓學習變簡單</p>
           </li>
           <li className='website-intro-item'>
             <span className="material-icons-outlined icon">place</span>
-            <p className='website-intro-title'>超過 100 種專業課程</p>
-            <p>學習標準化的電腦形式語言<br />培養運算思維和邏輯素養</p>
+            <p className='website-intro-title'>指定地點</p>
+            <p>專業老師到你指定的地點<br />一對一高效學習</p>
           </li>
         </ul>
       </PageWidth>
@@ -397,6 +426,7 @@ function Home() {
         <MoreCourseBtn>所有課程列表</MoreCourseBtn>
       </PageWidth>
     </RecommendedCourse>
+    <HowToLearn list={howToLearnList} />
   </>
 }
 
