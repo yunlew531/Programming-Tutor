@@ -1,8 +1,9 @@
 import { useRoutes } from 'react-router-dom';
 import routes from './routes';
 import { ThemeProvider } from '@emotion/react';
-import Header from './layout/Header.tsx';
+import Header from 'src/layout/Header.tsx';
 import theme from 'src/assets/styleSheets/theme.ts';
+import Footer from 'src/layout/Footer.tsx';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Header />
         {element}
+        <Footer />
       </ThemeProvider>
     </>
   )
