@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import PageWidth from 'src/components/PageWidth';
 import SectionTitle from 'src/components/Home/SectionTitle';
 import HowToLearn from 'src/components/Home/HowToLearn';
+import Articles from 'src/components/Home/Articles';
+import UserReview from 'src/components/Home/UserReview';
 
 const Banner = styled.div<IThemeProps>`
   background-color: ${({theme: {color: {black_100}}})=> black_100};
@@ -286,6 +288,25 @@ function Home() {
     },
   ]
 
+  const articles = [
+    {
+      image: 'src/assets/images/1.png',
+      title: '2022 前端開發者學習地圖',
+      content: '轉職為前端的這條職業路上該如何發展？本篇為前端開發者提供學習地圖參考',
+    },
+    {
+      image: 'src/assets/images/2.png',
+      title: '軟體工程師有哪些類別',
+      content: '軟體工程師領域廣闊，許多人仍然對此相關職務感到陌生，本篇就介紹主流的軟體工程師職務',
+    },
+    {
+      image: 'src/assets/images/3.png',
+      title: '免費 25 小時前端教學資源',
+      content: '這篇文章規劃了適合「前端工程師」的學習地圖，讓新進的學生了解如何選擇課程',
+    }
+  ]
+
+
   return <>
     <Banner>
       <PageWidth className='page-width'>
@@ -427,6 +448,8 @@ function Home() {
       </PageWidth>
     </RecommendedCourse>
     <HowToLearn list={howToLearnList} />
+    <Articles articles={articles} />
+    <UserReview />
   </>
 }
 

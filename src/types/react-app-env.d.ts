@@ -10,3 +10,10 @@ interface IHowToLearnItem {
   content: string;
   icon: string;
 }
+
+
+interface IArticle {
+  title: string;
+  content: string;
+  image: string;
+}

@@ -10,21 +10,22 @@ const HowToLearnList = styled.ul`
   display: flex;
 `;
 
-interface IHowToLearnItemProps {
+interface IHowToLearnItemProps extends IThemeProps {
   bg: string;
 }
 
-const HowToLearnItem = styled.li<IThemeProps & IHowToLearnItemProps>`
+const HowToLearnItem = styled.li<IHowToLearnItemProps>`
   width: 360px;
   background: url(${({bg}) => bg}) center no-repeat;
   background-size: cover;
+  &:first-of-type, &:last-of-type {
+    overflow: hidden;
+  }
   &:first-of-type {
     border-radius: 10px 0 0 10px;
-    overflow: hidden;
   }
   &:last-of-type {
     border-radius: 0 10px 10px 0;
-    overflow: hidden;
   }
   .how-to-learn-item-container {
     padding: 218px 48px;
@@ -40,6 +41,10 @@ const HowToLearnItem = styled.li<IThemeProps & IHowToLearnItemProps>`
       .material-icons-outlined.icon {
         color: ${({theme: {color: {green_100}}}) => green_100};
         transition: color 0.2s ease-in;
+      }
+      .title::before {
+        background-color: ${({theme: {color: {green_100}}}) => green_100};
+        transition: background 0.2s ease-in;
       }
     }
   }
@@ -57,6 +62,7 @@ const HowToLearnItem = styled.li<IThemeProps & IHowToLearnItemProps>`
       height: 3px;
       width: 50px;
       background-color: ${({theme: {color: {white_100}}}) => white_100};
+      transition: background 0.2s 0.2s ease-in;
     }
   }
   .content {
@@ -82,7 +88,7 @@ function HowToLearn({list}: IHowToLearnProps) {
       <PageWidth className='page-width'>
         <HowToLearnList>
           {list.map((item) => 
-            <HowToLearnItem bg={item.image}>
+            <HowToLearnItem key={item.title} bg={item.image}>
               <div className="how-to-learn-item-container">
                 <span className="material-icons-outlined icon">{item.icon}</span>
                 <h4 className="title">{item.title}</h4>
