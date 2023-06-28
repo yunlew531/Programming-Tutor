@@ -4,6 +4,7 @@ import SectionTitle from 'src/components/Home/SectionTitle';
 import HowToLearn from 'src/components/Home/HowToLearn';
 import Articles from 'src/components/Home/Articles';
 import UserReview from 'src/components/Home/UserReview';
+import { Link } from 'react-router-dom';
 
 const Banner = styled.div<IThemeProps>`
   background-color: ${({theme: {color: {black_100}}})=> black_100};
@@ -246,10 +247,12 @@ const RecommendedCourseItem = styled.li<IThemeProps>`
   }
 `;
 
-const MoreCourseBtn = styled.button<IThemeProps>`
+const MoreCourseLink = styled(Link)<IThemeProps>`
+  width: 172px;
   display: block;
+  text-align: center;
   margin: 0 auto;
-  padding: 8px 32px;
+  padding: 8px;
   background: linear-gradient(to right top, ${({theme: {color: {blue_100}}}) => blue_100}, ${({theme: {color: {green_100}}}) => green_100});
   transition: filter 0.2s ease-in;
   color: ${({theme: {color: {white_100}}}) => white_100};
@@ -305,7 +308,6 @@ function Home() {
       content: '這篇文章規劃了適合「前端工程師」的學習地圖，讓新進的學生了解如何選擇課程',
     }
   ]
-
 
   return <>
     <Banner>
@@ -444,7 +446,7 @@ function Home() {
             </div>
           </RecommendedCourseItem>
         </RecommendedCourseList>
-        <MoreCourseBtn>所有課程列表</MoreCourseBtn>
+        <MoreCourseLink to="/courses">所有課程列表</MoreCourseLink>
       </PageWidth>
     </RecommendedCourse>
     <HowToLearn list={howToLearnList} />

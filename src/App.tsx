@@ -4,6 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import Header from 'src/layout/Header.tsx';
 import theme from 'src/assets/styleSheets/theme.ts';
 import Footer from 'src/layout/Footer.tsx';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <ScrollToTop />
         <Header />
         {element}
         <Footer />
