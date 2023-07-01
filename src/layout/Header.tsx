@@ -4,11 +4,11 @@ import PageWidth from 'src/components/PageWidth';
 const HeaderStyle = styled.header<IThemeProps>`
   color: ${({theme: {color: {white_100}}})=> white_100};
   background-color: ${({theme: {color: {black_100}}})=> black_100};
-  padding: 24px 72px;
 `
 
 const HeaderContainer = styled.div`
   display: flex;
+  padding: 24px 72px;
 `
 
 const LogoLink = styled.a<IThemeProps>`

@@ -11,9 +11,18 @@ interface IHowToLearnItem {
   icon: string;
 }
 
-
 interface IArticle {
   title: string;
   content: string;
   image: string;
+}
+
+interface ICourse {
+  teacherPhoto: string;
+  teacherName: string;
+  title: string;
+  category: string;
+  content: string;
+  price: number;
+  courseLong: number;
 }

@@ -5,6 +5,8 @@ import HowToLearn from 'src/components/Home/HowToLearn';
 import Articles from 'src/components/Home/Articles';
 import UserReview from 'src/components/Home/UserReview';
 import { Link } from 'react-router-dom';
+import CourseList from 'src/components/CourseList';
+import courses from 'src/assets/courses.json'
 
 const Banner = styled.div<IThemeProps>`
   background-color: ${({theme: {color: {black_100}}})=> black_100};
@@ -184,69 +186,6 @@ const RecommendedCourse = styled.div<IThemeProps>`
   }
 `;
 
-const RecommendedCourseList = styled.ul`
-  display: flex;
-  margin-bottom: 48px;
-`;
-
-const RecommendedCourseItem = styled.li<IThemeProps>`
-  display: flex;
-  flex-direction: column;
-  width: 306px;
-  background-color: ${({theme: {color: {black_200}}}) => black_200};
-  border-radius: 15px;
-  margin-right: 24px;
-  border: 1px solid transparent;
-  &:last-of-type {
-    margin-right: 0;
-  }
-  .course-card-header {
-    flex-grow: 1;
-    border-bottom: 1px solid ${({theme: {color: {gray_100}}}) => gray_100};
-    padding: 24px;
-  }
-  .course-card-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-  }
-  .course-time {
-    font-weight: lighter;
-  }
-  .course-price {
-    font-size: 32px;
-    margin-left: 8px;
-  }
-  .person-photo {
-    display: block;
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    margin-bottom: 8px;
-  }
-  .course-content, .person-name, .course-title, .course-card-footer {
-    color: ${({theme: {color: {white_100}}}) => white_100};
-  }
-  .person-name {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .course-title {
-    font-size: 20px;
-    margin-bottom: 30px;
-    height: 58px;
-  }
-  .course-subtitle {
-    color: ${({theme: {color: {green_100}}}) => green_100};
-    margin-bottom: 8px;
-  }
-  &:hover {
-    border: 1px solid ${({theme: {color: {green_100}}}) => green_100};
-  }
-`;
-
 const MoreCourseLink = styled(Link)<IThemeProps>`
   width: 172px;
   display: block;
@@ -258,6 +197,7 @@ const MoreCourseLink = styled(Link)<IThemeProps>`
   color: ${({theme: {color: {white_100}}}) => white_100};
   border-radius: 10px;
   border: none;
+  margin-top: 48px;
   &:hover {
     filter: brightness(0.9);
   }
@@ -391,61 +331,7 @@ function Home() {
     </ProgrammingLanguage>
     <RecommendedCourse>
       <PageWidth className='page-width'>
-        <SectionTitle text="熱門推薦課程" />
-        <RecommendedCourseList>
-          <RecommendedCourseItem>
-            <div className="course-card-header">
-              <img className='person-photo' src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80" alt="person" />
-              <p className='person-name'>Belinda</p>
-              <p className='course-title'>基礎前端 - HTML</p>
-              <p className='course-subtitle'>前端語言</p>
-              <p className='course-content'>帶領無基礎的平民老百姓，從最基礎的 HTML 語法出發，使用最淺顯易懂的語言與生活隨處可見的例子...</p>
-            </div>
-            <div className="course-card-footer">
-              <span className='course-time'>50分鐘</span>
-              <span className='course-price'>NT$1600</span>
-            </div>
-          </RecommendedCourseItem>
-          <RecommendedCourseItem>
-            <div className="course-card-header">
-              <img className='person-photo' src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="person" />
-              <p className='person-name'>Guava</p>
-              <p className='course-title'>2022 Python 全攻略｜從入門到實務</p>
-              <p className='course-subtitle'>後端語言</p>
-              <p className='course-content'>Python支援多種程式設計範式，包括函數式、指令式、反射式、結構化和物件導向程式設計，它擁有動態...</p>
-            </div>
-            <div className="course-card-footer">
-              <span className='course-time'>50分鐘</span>
-              <span className='course-price'>NT$2200</span>
-            </div>
-          </RecommendedCourseItem>
-          <RecommendedCourseItem>
-            <div className="course-card-header">
-              <img className='person-photo' src="https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="person" />
-              <p className='person-name'>Joe</p>
-              <p className='course-title'>活用 Line Bot ｜APP 開發到上架完整實戰攻略</p>
-              <p className='course-subtitle'>行動應用開發</p>
-              <p className='course-content'>Line Bot 可用於實用的目的，如客戶服務或資訊獲取，有些聊天機器人會搭載自然語言處理系統，但大多簡...</p>
-            </div>
-            <div className="course-card-footer">
-              <span className='course-time'>50分鐘</span>
-              <span className='course-price'>NT$1800</span>
-            </div>
-          </RecommendedCourseItem>
-          <RecommendedCourseItem>
-            <div className="course-card-header">
-              <img className='person-photo' src="https://images.unsplash.com/photo-1498090890888-3df9298e7b84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80" alt="person" />
-              <p className='person-name'>Lina</p>
-              <p className='course-title'>Linux 零基礎七天入門｜入門到實務</p>
-              <p className='course-subtitle'>作業系統與伺服器</p>
-              <p className='course-content'>Linux是一種自由和開放原始碼的類UNIX作業系統，作業系統中包含了許多使用者圖形介面和其他實用...</p>
-            </div>
-            <div className="course-card-footer">
-              <span className='course-time'>50分鐘</span>
-              <span className='course-price'>NT$1100</span>
-            </div>
-          </RecommendedCourseItem>
-        </RecommendedCourseList>
+        <CourseList title="熱門推薦課程" courses={courses} />
         <MoreCourseLink to="/courses">所有課程列表</MoreCourseLink>
       </PageWidth>
     </RecommendedCourse>
