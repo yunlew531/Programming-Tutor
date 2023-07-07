@@ -8,6 +8,7 @@ const theme = {
     green_100: '#62DB54',
     gray_100: '#8b8b8b',
     gray_200: '#909090',
+    gray_300: '#C1C1C1'
   }
 }
 

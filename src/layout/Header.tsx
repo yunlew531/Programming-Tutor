@@ -42,7 +42,11 @@ const LinkList = styled.ul<IThemeProps>`
   align-items: center;
   .header-link {
     display: flex;
+    align-items: center;
     color: ${({theme: {color: {white_100}}}) => white_100};
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
   .link-item {
     display: flex;
@@ -77,8 +81,12 @@ const HeaderBorderContainer = styled.div<IThemeProps>`
   }
 `;
 
+interface HeaderProps {
+  showLoginModal: () => void;
+}
 
-function Header() {
+
+function Header({showLoginModal}: HeaderProps) {
   return <>
     <HeaderStyle>
       <PageWidth>
@@ -91,10 +99,10 @@ function Header() {
             <li className='link-item'><a href="/" className='header-link'>首頁</a></li>
             <li className='link-item'><a href="/" className='header-link'>課程介紹</a></li>
             <li className='link-item'>
-              <a href="/" className='header-link'>
+              <button type='button' className='header-link' onClick={showLoginModal}>
                 <span className="material-icons-outlined account-icon">account_circle</span>
                 <span>登入</span>
-                </a>
+                </button>
             </li>
           </LinkList>
         </HeaderContainer>

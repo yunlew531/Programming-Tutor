@@ -160,7 +160,7 @@ function Course() {
             <CourseIntroCard>
               <ResumeList>
                 {resumeList.map(resume => 
-                  <li>
+                  <li key={resume.title}>
                     <span className="material-icons resume-icon">{resume.icon}</span>
                     <h5>{resume.title}</h5>
                     <p>{resume.content}</p>

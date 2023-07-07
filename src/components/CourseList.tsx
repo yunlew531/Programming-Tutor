@@ -73,7 +73,7 @@ function CourseList({courses, title}: ICourseProps) {
      <SectionTitle text={title} />
      <CourseListStyle>
        {courses.map(course => 
-        <RecommendedCourseItem>
+        <RecommendedCourseItem key={course.title}>
           <div className="course-card-header">
             <img className='person-photo' src={course.teacherPhoto} alt="person" />
             <p className='person-name'>{course.teacherName}</p>
